@@ -1,0 +1,2 @@
+# koa_mysql_pool_use
+KOA框架GET、POST使用和mysql使用链接池管理的NodeJs样本
