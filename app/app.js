@@ -46,7 +46,7 @@ db.init({
     port: 3306
 });
 db.query(`select * from t_users`, null, async(err, ret)=>{
-    console.log(err, ret);
+    console.log('数据库执行结果：', err, ret);
 });
 //
 
