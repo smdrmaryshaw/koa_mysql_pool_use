@@ -38,14 +38,16 @@ let createMysqlPool = function (opt) {
                 });
 
                 //此处可选择性屏蔽
-                setInterval(()=>{
+                let iter = setInterval(()=>{
                     if(client == null || client.ping == null){
-                        console.error('数据库心跳出错', client ? `0${client.ping}`: client)
+                        console.warn('数据库心跳出错');
+                        clearInterval(iter);
                         return;
                     }
                     client.ping((err)=>{
                         if(err){
-                            console.error('DB - 数据库心跳出错', err);
+                            console.warn('DB - 数据库心跳出错', err);
+                            clearInterval(iter);
                         }
                         else{
                             //console.debug('DB - 数据库心跳正常');

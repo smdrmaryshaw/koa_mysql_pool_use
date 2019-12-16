@@ -6,7 +6,7 @@ module.exports = async function (ctx, next) {
         console.warn('无效请求');
         ctx.body = '会话过期 请重新登录';
     } else {
-        let str = ctx.request.method == 'get' ? ctx.request.query : ctx.request.body;
+        let str = ctx.request.url;
         console.debug('响应', str);
         let d = Date.now();
         await next();
